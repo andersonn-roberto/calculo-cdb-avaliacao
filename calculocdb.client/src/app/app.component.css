@@ -1,10 +1,10 @@
 :host {
-    max-width: 1280px;
-    padding: 2rem;
+  max-width: 1280px;
+  padding: 2rem;
 }
 
-body {
-    font-family: Arial, sans-serif;
+#tela {
+  font-family: Arial, sans-serif;
 }
 
 h1, p {
@@ -18,4 +18,8 @@ h1, p {
   justify-content: center;
   margin: 0 auto;
   max-width: 400px;
+}
+
+.campo {
+  margin-bottom: 1rem;
 }

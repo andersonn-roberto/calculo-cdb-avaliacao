@@ -1,19 +1,25 @@
-<h1>Cálculo do CDB</h1>
-<p>Informe um valor monetário positivo, e um prazo em meses maior que 1(um) para resgate da aplicação.</p>
-<div class="form">
-    <label for="valorInicial">Valor</label>
-    <input type="number" [(ngModel)]="valorInicial" placeholder="Digite um valor monetário positivo" min="0" step="0.01" required>
-    <div *ngIf="valorInicial == undefined || valorInicial == null || valorInicial == 0" style="color: red;">
-        Digite um um valor monetário positivo.
+<div id="tela">
+    <h1>Cálculo do CDB</h1>
+    <p>Informe um valor monetário positivo, e um prazo em meses maior que 1(um) para resgate da aplicação.</p>
+    <div class="form">
+        <div class="campo">
+            <label for="valorInicial">Valor: </label>
+            <input type="number" [(ngModel)]="valorInicial" placeholder="Digite um valor monetário positivo" min="0" step="0.01" required>
+            <div *ngIf="valorInicial == undefined || valorInicial == null || valorInicial == 0" style="color: red;">
+                Digite um um valor monetário positivo.
+            </div>
+        </div>
+        <div class="campo">
+            <label for="quantidadeMeses">Meses: </label>
+            <input type="number" [(ngModel)]="quantidadeMeses" placeholder="Digite o prazo em meses" min="2" required>
+            <div *ngIf="quantidadeMeses == undefined || quantidadeMeses == null || quantidadeMeses <= 1" style="color: red;">
+                Digite um prazo em meses maior que 1(um).
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="postCalculoCdb()" [disabled]="validarCampos()">Calcular</button>
+        </div>
     </div>
-    <label for="quantidadeMeses">Meses</label>
-    <input type="number" [(ngModel)]="quantidadeMeses" placeholder="Digite o prazo em meses" min="2" required>
-    <div *ngIf="quantidadeMeses == undefined || quantidadeMeses == null || quantidadeMeses <= 1" style="color: red;">
-        Digite um prazo em meses maior que 1(um).
-    </div>
-    <div>
-        <button class="btn btn-primary" (click)="postCalculoCdb()" [disabled]="validarCampos()">Calcular</button>
-    </div>
+    <p aria-live="polite">Resultado Cálculo CDB Bruto: <strong>{{ valorBruto | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
+    <p aria-live="polite">Resultado Cálculo CDB Líquido: <strong>{{ valorLiquido | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
 </div>
-<p aria-live="polite">Resultado Cálculo CDB Bruto: <strong>{{ valorBruto | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
-<p aria-live="polite">Resultado Cálculo CDB Líquido: <strong>{{ valorLiquido | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
