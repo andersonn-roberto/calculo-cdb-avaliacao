@@ -1,4 +1,4 @@
-# Projeto de Avaliação - Cálcudo do CDB
+# Projeto de Avaliação - Cálculo do CDB
 
 ## Tecnologias e frameworks utilizados
 
