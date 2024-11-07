@@ -67,7 +67,12 @@ dotnet tool install -g dotnet-reportgenerator-globaltool
 dotnet test --collect:"XPlat Code Coverage"
 ```
 
-- Execute o ReportGenerator para gerar uma página HTML do relatório, por exemplo:
+> Na saida do teste vai gerar algo assim:
+
+`Attachments:
+  C:\Projetos\TI\Estudos\CalculoCDB\CalculoCDB.Test\TestResults\a536aa1d-908a-4b0d-bfd0-3bfde5bff1ba\coverage.cobertura.xml`
+
+- Execute o ReportGenerator para gerar uma página HTML do relatório utilizando o caminho do Attachments do passo anterior:
 
   > reportgenerator -reports:"C:\Projetos\TI\Estudos\CalculoCDB\CalculoCDB.Test\TestResults\a536aa1d-908a-4b0d-bfd0-3bfde5bff1ba\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
 
